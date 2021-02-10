@@ -13,6 +13,10 @@ const connect = function() {
     console.log('Server says: ', data); // outputs the data to the client (player in this case)
   });
 
+  conn.on('connect', () => {  // callback function
+    conn.write('Name: ELT'); // msg to send back to server 
+  });  
+
   return conn;
 };
 
