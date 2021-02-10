@@ -1,4 +1,5 @@
 const net = require('net');
+let delayTime = 50;
 
 // Establishes connection with the game server
 const connect = function() {
@@ -16,6 +17,17 @@ const connect = function() {
   conn.on('connect', () => {  // callback function
     conn.write('Name: ELT'); // msg to send back to server 
   });  
+
+  
+  // conn.on('connect', () => {  // callback function
+  //   setInterval(() => { // setTimeout or setInterval will repeat the move
+  //     conn.write('Move: up'); // msg to send back to server 
+  //   }, delayTime += 50); 
+  //  }); 
+
+  // conn.on('connect', () => {  // callback function
+  //   conn.write('Move: up'); // msg to send back to server 
+  // }); 
 
   return conn;
 };
