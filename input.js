@@ -27,6 +27,15 @@ const setupInput = function(conn) {
       if (key === 'd') {
         conn.write('Move: right'); // msg to send back to server 
       }
+      if (key === 'b') {
+        conn.write('Say: watch out'); // msg to send back to server 
+      }
+      if (key === 'n') {
+        conn.write('Say: looking long'); // msg to send back to server 
+      }
+      if (key === 'm') {
+        conn.write('Say: have a good day'); // msg to send back to server 
+      }
     });
     return stdin;
   };
