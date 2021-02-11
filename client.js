@@ -1,11 +1,11 @@
 const net = require('net');
-let delayTime = 50;
+const { IP, PORT } = require('./constants');
 
 // Establishes connection with the game server
 const connect = function() {
   const conn = net.createConnection({
-    host: 'localhost',
-    port: 50541
+    host: IP,
+    port: PORT
   });
   // interpret incoming data as text
   conn.setEncoding('utf8');
@@ -18,18 +18,7 @@ const connect = function() {
     conn.write('Name: ELT'); // msg to send back to server 
   });  
 
-  
-  // conn.on('connect', () => {  // callback function
-  //   setInterval(() => { // setTimeout or setInterval will repeat the move
-  //     conn.write('Move: up'); // msg to send back to server 
-  //   }, delayTime += 50); 
-  //  }); 
-
-  // conn.on('connect', () => {  // callback function
-  //   conn.write('Move: up'); // msg to send back to server 
-  // }); 
-
-  return conn;
+  return conn; //returning the object conn, which is the connection
 };
 
 module.exports = { connect };
